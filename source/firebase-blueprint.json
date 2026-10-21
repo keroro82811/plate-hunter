@@ -1,0 +1,51 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with nickname, email, birthday, and collector title",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "User UID matching auth.uid" },
+        "displayName": { "type": "string", "description": "User display name" },
+        "email": { "type": "string", "description": "User email address" },
+        "photoURL": { "type": "string", "description": "User avatar image URL" },
+        "birthday": { "type": "string", "description": "User birthday string e.g. 1024 or 1995-10-24" },
+        "birthdayPlate": { "type": "string", "description": "Extracted 4-digit birthday plate e.g. 1024" },
+        "collectorTitle": { "type": "string", "description": "Personal collector title" },
+        "createdAt": { "type": "string", "description": "Account creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Profile update timestamp" }
+      },
+      "required": ["uid", "displayName"]
+    },
+    "UserPlate": {
+      "title": "UserPlate",
+      "description": "Collected license plate record for a specific user",
+      "type": "object",
+      "properties": {
+        "number": { "type": "string", "description": "4-digit number slot between 0000 and 9999" },
+        "fullPlate": { "type": "string", "description": "Complete license plate e.g. ABC-1234" },
+        "imageUrl": { "type": "string", "description": "1:1 cropped square image URL" },
+        "originalImageUrl": { "type": "string", "description": "Original high-res photo URL" },
+        "collectedAt": { "type": "string", "description": "ISO timestamp of collection" },
+        "vehicleType": { "type": "string", "description": "Vehicle type e.g. sedan, suv" },
+        "vehicleColor": { "type": "string", "description": "Vehicle color" },
+        "notes": { "type": "string", "description": "User notes" },
+        "locationName": { "type": "string", "description": "Location name" },
+        "latitude": { "type": "number", "description": "GPS latitude" },
+        "longitude": { "type": "number", "description": "GPS longitude" },
+        "updatedAt": { "type": "string", "description": "Last update ISO timestamp" }
+      },
+      "required": ["number"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User private profile document"
+    },
+    "/users/{userId}/plates/{plateNumber}": {
+      "schema": "UserPlate",
+      "description": "User private license plate collection"
+    }
+  }
+}

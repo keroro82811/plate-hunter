@@ -1,0 +1,1134 @@
+@import "tailwindcss";
+
+/* Base smooth transition for theme switching */
+body, main, header, div, input, button {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+/* ========================================================
+   Theme: Cyber Neon (午夜賽博 / 街機風)
+   ======================================================== */
+[data-theme="cyber"] {
+  color-scheme: dark;
+  background-color: #06070f !important;
+  color: #e2fbf7 !important;
+}
+
+[data-theme="cyber"] body {
+  background-color: #06070f !important;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 240, 255, 0.08), transparent),
+    linear-gradient(to bottom, #06070f, #080916) !important;
+}
+
+[data-theme="cyber"] .bg-slate-950 {
+  background-color: #080a18 !important;
+}
+[data-theme="cyber"] .bg-slate-950\/85,
+[data-theme="cyber"] .bg-slate-950\/90 {
+  background-color: rgba(8, 10, 24, 0.95) !important;
+}
+[data-theme="cyber"] .bg-slate-950\/70,
+[data-theme="cyber"] .bg-slate-950\/60,
+[data-theme="cyber"] .bg-slate-950\/50 {
+  background-color: rgba(8, 10, 24, 0.85) !important;
+}
+[data-theme="cyber"] .bg-slate-950\/40,
+[data-theme="cyber"] .bg-slate-950\/30 {
+  background-color: rgba(9, 13, 30, 0.5) !important;
+}
+
+[data-theme="cyber"] .bg-slate-900,
+[data-theme="cyber"] .bg-slate-900\/90,
+[data-theme="cyber"] .bg-slate-900\/80,
+[data-theme="cyber"] .bg-slate-900\/70,
+[data-theme="cyber"] .bg-slate-900\/60 {
+  background-color: #0d122b !important;
+}
+
+[data-theme="cyber"] .bg-slate-850,
+[data-theme="cyber"] .bg-slate-800 {
+  background-color: #12193a !important;
+}
+
+/* Borders */
+[data-theme="cyber"] .border-slate-800,
+[data-theme="cyber"] .border-slate-850,
+[data-theme="cyber"] .border-slate-850\/60,
+[data-theme="cyber"] .border-slate-750,
+[data-theme="cyber"] .border-slate-700,
+[data-theme="cyber"] .border-slate-700\/80 {
+  border-color: #1a2752 !important;
+}
+
+/* Cyber Neon Accents (Cyan #00f0ff & Magenta #ff007f) */
+[data-theme="cyber"] .bg-amber-400,
+[data-theme="cyber"] .bg-amber-300 {
+  background-color: #00f0ff !important;
+  color: #06070f !important;
+}
+
+[data-theme="cyber"] .from-amber-400,
+[data-theme="cyber"] .from-amber-500 {
+  --tw-gradient-from: #00f0ff !important;
+  --tw-gradient-to: #00f0ff !important;
+  --tw-gradient-stops: #00f0ff, #ff007f !important;
+}
+[data-theme="cyber"] .to-amber-300,
+[data-theme="cyber"] .to-amber-400 {
+  --tw-gradient-to: #ff007f !important;
+}
+
+[data-theme="cyber"] .text-amber-300,
+[data-theme="cyber"] .text-amber-400,
+[data-theme="cyber"] .text-amber-500 {
+  color: #00f0ff !important;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+[data-theme="cyber"] .border-amber-400,
+[data-theme="cyber"] .border-amber-400\/40,
+[data-theme="cyber"] .border-amber-300,
+[data-theme="cyber"] .border-amber-500\/30 {
+  border-color: #00f0ff !important;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.2);
+}
+
+[data-theme="cyber"] #theme-switcher-btn {
+  border-color: rgba(0, 240, 255, 0.3) !important;
+}
+
+[data-theme="cyber"] .aspect-square:hover {
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
+  border-color: rgba(0, 240, 255, 0.45) !important;
+}
+
+/* Cyber App Brand Icon */
+[data-theme="cyber"] #app-brand-icon-wrapper {
+  background: linear-gradient(135deg, #00f0ff, #ff007f) !important;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4) !important;
+}
+[data-theme="cyber"] #app-brand-icon-inner {
+  background: #080a18 !important;
+  border-color: #00f0ff !important;
+}
+[data-theme="cyber"] #app-brand-icon-text {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  color: #00f0ff !important;
+  text-shadow: 0 0 8px #00f0ff !important;
+}
+
+/* Cyber Upload Buttons */
+[data-theme="cyber"] #desktop-batch-upload-btn,
+[data-theme="cyber"] #mobile-batch-upload-btn {
+  background-color: #00f0ff !important;
+  background-image: none !important;
+  color: #06070f !important;
+  border-color: #00f0ff !important;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.35) !important;
+}
+[data-theme="cyber"] #desktop-batch-upload-btn *,
+[data-theme="cyber"] #mobile-batch-upload-btn * {
+  color: #06070f !important;
+  font-weight: 800 !important;
+}
+
+/* Cyber Top Showcase Button */
+[data-theme="cyber"] #open-badges-btn {
+  background: #0d122b !important;
+  background-color: #0d122b !important;
+  background-image: none !important;
+  border: 1.5px solid #1a2752 !important;
+  color: #00f0ff !important;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.2) !important;
+}
+[data-theme="cyber"] #open-badges-btn svg {
+  color: #00f0ff !important;
+}
+
+
+/* ========================================================
+   Theme: Warm Parchment (日系手帳 / 溫潤圖鑑風)
+   Complete, Thorough & Consistent Light Aesthetics Across All Modals
+   ======================================================== */
+[data-theme="parchment"] {
+  color-scheme: light;
+  background-color: #f7f3ec !important;
+  color: #181411 !important;
+}
+
+[data-theme="parchment"] body {
+  background-color: #f7f3ec !important;
+  background-image: radial-gradient(#ddd2bf 1.2px, transparent 1.2px) !important;
+  background-size: 16px 16px !important;
+}
+
+/* 1. Header & Navigation */
+[data-theme="parchment"] header {
+  background-color: rgba(249, 246, 240, 0.96) !important;
+  border-color: #dcd0be !important;
+}
+
+/* Brand 0-9 Icon in Parchment (Wax Seal / Stamp Style) */
+[data-theme="parchment"] #app-brand-icon-wrapper {
+  background: #b93826 !important;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(185, 56, 38, 0.25) !important;
+}
+[data-theme="parchment"] #app-brand-icon-inner {
+  background: #ffffff !important;
+  border: 1.5px solid #b93826 !important;
+}
+[data-theme="parchment"] #app-brand-icon-text {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  color: #b93826 !important;
+  filter: none !important;
+  text-shadow: none !important;
+  font-weight: 900 !important;
+  font-size: 16px !important;
+}
+
+/* Top Upload Photo Button (Consistent Vermilion Stamp Button) */
+[data-theme="parchment"] #desktop-batch-upload-btn,
+[data-theme="parchment"] #mobile-batch-upload-btn {
+  background-color: #b93826 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid #8e2b1d !important;
+  box-shadow: 0 2px 6px rgba(185, 56, 38, 0.25) !important;
+  font-weight: 800 !important;
+}
+[data-theme="parchment"] #desktop-batch-upload-btn:hover,
+[data-theme="parchment"] #mobile-batch-upload-btn:hover {
+  background-color: #a33020 !important;
+}
+[data-theme="parchment"] #desktop-batch-upload-btn *,
+[data-theme="parchment"] #mobile-batch-upload-btn * {
+  color: #ffffff !important;
+}
+
+/* Top Showcase Button: Solid Flat Style without Gradient */
+[data-theme="parchment"] #open-badges-btn {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  border: 1.5px solid #d6caa8 !important;
+  color: #181411 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  font-weight: 700 !important;
+}
+[data-theme="parchment"] #open-badges-btn:hover {
+  background-color: #ede3d4 !important;
+}
+[data-theme="parchment"] #open-badges-btn svg {
+  color: #b93826 !important;
+}
+
+/* 2. Global Slate Backgrounds Overrides (Eliminates All Dark Blocks) */
+[data-theme="parchment"] .bg-slate-950 {
+  background-color: #faf5ed !important;
+  color: #181411 !important;
+}
+[data-theme="parchment"] .bg-slate-950\/95,
+[data-theme="parchment"] .bg-slate-950\/90,
+[data-theme="parchment"] .bg-slate-950\/85 {
+  background-color: rgba(250, 245, 237, 0.96) !important;
+}
+[data-theme="parchment"] .bg-slate-950\/70,
+[data-theme="parchment"] .bg-slate-950\/60,
+[data-theme="parchment"] .bg-slate-950\/50 {
+  background-color: #ede3d4 !important;
+}
+[data-theme="parchment"] .bg-slate-950\/40,
+[data-theme="parchment"] .bg-slate-950\/30,
+[data-theme="parchment"] .bg-slate-950\/20 {
+  background-color: #faf5ec !important;
+}
+
+[data-theme="parchment"] .bg-slate-900,
+[data-theme="parchment"] .bg-slate-900\/95,
+[data-theme="parchment"] .bg-slate-900\/90,
+[data-theme="parchment"] .bg-slate-900\/80,
+[data-theme="parchment"] .bg-slate-900\/70,
+[data-theme="parchment"] .bg-slate-900\/60,
+[data-theme="parchment"] .bg-slate-900\/50 {
+  background-color: #fcf9f2 !important;
+}
+
+[data-theme="parchment"] .bg-slate-850 {
+  background-color: #ffffff !important;
+}
+
+[data-theme="parchment"] .bg-slate-800,
+[data-theme="parchment"] .bg-slate-800\/80,
+[data-theme="parchment"] .bg-slate-800\/70,
+[data-theme="parchment"] .bg-slate-800\/60,
+[data-theme="parchment"] .bg-slate-800\/40,
+[data-theme="parchment"] .bg-slate-800\/30 {
+  background-color: #ede4d4 !important;
+  color: #181411 !important;
+}
+
+[data-theme="parchment"] .bg-slate-750,
+[data-theme="parchment"] .bg-slate-700 {
+  background-color: #e5dac8 !important;
+}
+
+/* Hover states */
+[data-theme="parchment"] .hover\:bg-slate-800:hover,
+[data-theme="parchment"] .hover\:bg-slate-750:hover,
+[data-theme="parchment"] .hover\:bg-slate-700:hover {
+  background-color: #e2d5c1 !important;
+  color: #181411 !important;
+}
+
+/* 3. Universal Borders */
+[data-theme="parchment"] .border-slate-800,
+[data-theme="parchment"] .border-slate-850,
+[data-theme="parchment"] .border-slate-750,
+[data-theme="parchment"] .border-slate-700,
+[data-theme="parchment"] .border-slate-700\/80,
+[data-theme="parchment"] .border-slate-600 {
+  border-color: #d6caa8 !important;
+}
+
+/* 4. Typography Hierarchy (Deep Sumi Ink) */
+[data-theme="parchment"] .text-slate-100,
+[data-theme="parchment"] .text-white {
+  color: #181411 !important;
+}
+[data-theme="parchment"] .text-slate-200,
+[data-theme="parchment"] .text-slate-300 {
+  color: #2e251e !important;
+}
+[data-theme="parchment"] .text-slate-400,
+[data-theme="parchment"] .text-slate-500 {
+  color: #635446 !important;
+}
+[data-theme="parchment"] .text-slate-600 {
+  color: #5c4e40 !important;
+}
+
+/* Amber/Orange Text in Parchment: Bold vermilion stamp accent or deep ink */
+[data-theme="parchment"] .text-amber-300,
+[data-theme="parchment"] .text-amber-400 {
+  color: #b93826 !important;
+}
+[data-theme="parchment"] .text-cyan-300 {
+  color: #0369a1 !important;
+}
+
+/* 5. Active Buttons & Chips (朱印 Vermilion Stamp) */
+[data-theme="parchment"] .bg-amber-400,
+[data-theme="parchment"] .bg-amber-300 {
+  background-color: #b93826 !important;
+  border-color: #8e2b1d !important;
+  color: #ffffff !important;
+}
+[data-theme="parchment"] .bg-amber-400 *,
+[data-theme="parchment"] .bg-amber-300 * {
+  color: #ffffff !important;
+}
+[data-theme="parchment"] .text-slate-950 {
+  color: #ffffff !important;
+}
+
+/* Subtle amber chip backgrounds */
+[data-theme="parchment"] .bg-amber-500\/10,
+[data-theme="parchment"] .bg-amber-400\/10,
+[data-theme="parchment"] .bg-amber-400\/20 {
+  background-color: #faede9 !important;
+  border-color: #f1b3a8 !important;
+  color: #b93826 !important;
+}
+[data-theme="parchment"] .bg-amber-500\/10 *,
+[data-theme="parchment"] .bg-amber-400\/10 *,
+[data-theme="parchment"] .bg-amber-400\/20 * {
+  color: #b93826 !important;
+}
+
+/* 6. Partition Count & Filter Statistics Display Pill (#partition-stat-badge) */
+/* Thousand Partition Selector Tabs in Warm Parchment (日系手帳風格) */
+[data-theme="parchment"] .thousand-partition-btn.is-active {
+  background-color: #b93826 !important;
+  border-color: #8e2b1d !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(185, 56, 38, 0.25) !important;
+}
+
+[data-theme="parchment"] .thousand-partition-btn.is-active span {
+  color: #ffffff !important;
+}
+
+/* In active tab, the top-right count number is pure white background with bold vermilion stamp text */
+[data-theme="parchment"] .thousand-partition-btn.is-active .partition-tab-count.active-count-badge {
+  background-color: #ffffff !important;
+  color: #b93826 !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+  font-weight: 900 !important;
+}
+
+/* In inactive tab, the top-right count number is soft vermilion chip with clear text */
+[data-theme="parchment"] .thousand-partition-btn:not(.is-active) .partition-tab-count.inactive-count-badge {
+  background-color: #faede9 !important;
+  color: #b93826 !important;
+  border: 1px solid #f1b3a8 !important;
+  font-weight: 800 !important;
+}
+
+/* Progress bar inside active tab in parchment */
+[data-theme="parchment"] .thousand-partition-btn.is-active .partition-progress-track {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+[data-theme="parchment"] .thousand-partition-btn.is-active .partition-progress-fill {
+  background-color: #ffffff !important;
+}
+
+/* Universal thousand partition count styling across other themes */
+.thousand-partition-btn.is-active .partition-tab-count.active-count-badge {
+  background-color: #020617 !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(251, 191, 36, 0.4) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="cyber"] .thousand-partition-btn.is-active .partition-tab-count.active-count-badge {
+  background-color: #06070f !important;
+  color: #00f0ff !important;
+  border: 1px solid rgba(0, 240, 255, 0.5) !important;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.3) !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] #partition-stat-badge {
+  background-color: #ffffff !important;
+  border: 1.5px solid #d6caa8 !important;
+  color: #181411 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+[data-theme="parchment"] #partition-stat-badge .partition-count-pill {
+  background-color: #fcf4f2 !important;
+  border: 1.5px solid #f2bbb2 !important;
+}
+[data-theme="parchment"] #partition-stat-badge .partition-number {
+  color: #b93826 !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+}
+[data-theme="parchment"] #partition-stat-badge .partition-total {
+  color: #554435 !important;
+  font-weight: 700 !important;
+}
+
+/* 7. Grid Cards: Crystal Clear Photos & Real White Plate Tags */
+[data-theme="parchment"] .aspect-square .bg-gradient-to-t {
+  opacity: 0.12 !important;
+}
+[data-theme="parchment"] .aspect-square .min-w-\[32px\] .bg-slate-950\/90,
+[data-theme="parchment"] .aspect-square .min-w-\[34px\] .bg-slate-950\/90,
+[data-theme="parchment"] .aspect-square .min-w-\[40px\] .bg-slate-950\/90,
+[data-theme="parchment"] .aspect-square .min-w-\[44px\] .bg-slate-950\/90 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #94a3b8 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+  font-weight: 800 !important;
+}
+[data-theme="parchment"] .aspect-square .bottom-0\.5 .bg-slate-950\/90 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1.5px solid #64748b !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+  letter-spacing: 0.05em !important;
+}
+[data-theme="parchment"] .aspect-square .bottom-0\.5 .bg-slate-950\/70 {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  color: #047857 !important;
+  border: 1px solid #94a3b8 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+[data-theme="parchment"] .aspect-square .bottom-0\.5 .bg-slate-950\/70 span {
+  color: #047857 !important;
+  font-weight: 600 !important;
+}
+[data-theme="parchment"] .aspect-square .bottom-0\.5 .bg-slate-950\/70 svg {
+  color: #059669 !important;
+}
+[data-theme="parchment"] .aspect-square.border-dashed {
+  border-color: #c4b5a2 !important;
+  border-width: 1.5px !important;
+  background-color: rgba(235, 225, 210, 0.4) !important;
+}
+
+/* Nine-Grid Viewfinder lines must NEVER have any background mask in any theme */
+.nine-grid-cell,
+[data-theme="parchment"] .nine-grid-cell,
+[data-theme="cyber"] .nine-grid-cell,
+[data-theme="carbon"] .nine-grid-cell {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* ========================================================
+   High-Contrast Crop Sliders (畫面縮放、水平位移、垂直位移)
+   ======================================================== */
+.crop-range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.crop-range-slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #1e293b;
+  border: 1.5px solid #334155;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.crop-range-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #1e293b;
+  border: 1.5px solid #334155;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.crop-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -6px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.crop-range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.crop-range-slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+/* Parchment Theme (日系手帳) High Contrast Sliders & Controls */
+[data-theme="parchment"] .crop-controls-card {
+  background-color: #ffffff !important;
+  border: 1.5px solid #d1c4b0 !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="parchment"] .crop-controls-card .crop-control-label,
+[data-theme="parchment"] .crop-controls-card .crop-control-label span {
+  color: #181411 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] .crop-controls-card .crop-zoom-value {
+  color: #b93826 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="parchment"] .crop-range-slider::-webkit-slider-runnable-track {
+  background-color: #d8cab7 !important;
+  border: 2px solid #8c7b68 !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.18) !important;
+}
+[data-theme="parchment"] .crop-range-slider::-moz-range-track {
+  background-color: #d8cab7 !important;
+  border: 2px solid #8c7b68 !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.18) !important;
+}
+
+[data-theme="parchment"] .crop-range-slider::-webkit-slider-thumb {
+  background-color: #b93826 !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 0 2px 8px rgba(185, 56, 38, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+[data-theme="parchment"] .crop-range-slider::-moz-range-thumb {
+  background-color: #b93826 !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 0 2px 8px rgba(185, 56, 38, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="parchment"] .crop-preset-btn:not(.is-active) {
+  background-color: #f7f1e6 !important;
+  border-color: #c9baa4 !important;
+  color: #2b221a !important;
+  font-weight: 700 !important;
+}
+[data-theme="parchment"] .crop-preset-btn:not(.is-active):hover {
+  background-color: #ede4d3 !important;
+  color: #181411 !important;
+}
+[data-theme="parchment"] .crop-preset-btn.is-active {
+  background-color: #b93826 !important;
+  border-color: #8c2517 !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  box-shadow: 0 2px 6px rgba(185, 56, 38, 0.3) !important;
+}
+
+/* Cyber Theme High-Contrast Sliders */
+[data-theme="cyber"] .crop-controls-card {
+  background-color: #0d122b !important;
+  border: 1.5px solid #1a2752 !important;
+}
+[data-theme="cyber"] .crop-range-slider::-webkit-slider-runnable-track {
+  background-color: #06070f !important;
+  border: 1.5px solid #00f0ff !important;
+}
+[data-theme="cyber"] .crop-range-slider::-moz-range-track {
+  background-color: #06070f !important;
+  border: 1.5px solid #00f0ff !important;
+}
+[data-theme="cyber"] .crop-range-slider::-webkit-slider-thumb {
+  background-color: #00f0ff !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 10px #00f0ff !important;
+}
+[data-theme="cyber"] .crop-range-slider::-moz-range-thumb {
+  background-color: #00f0ff !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 10px #00f0ff !important;
+}
+
+/* ========================================================
+   Plate Detail Modal (#plate-detail-modal)
+   ======================================================== */
+[data-theme="parchment"] #plate-detail-modal {
+  background-color: #fcf9f2 !important;
+  border: 1.5px solid #d6caa8 !important;
+  color: #181411 !important;
+  box-shadow: 0 25px 50px -12px rgba(40, 30, 20, 0.25) !important;
+}
+
+/* Header bar */
+[data-theme="parchment"] #plate-detail-modal > div:first-child {
+  background-color: #ede3d4 !important;
+  border-bottom: 1.5px solid #d6caa8 !important;
+}
+
+/* "共存有 2 張照片" badge */
+[data-theme="parchment"] #plate-detail-modal .bg-slate-800.text-slate-300 {
+  background-color: #ffffff !important;
+  border-color: #d6caa8 !important;
+  color: #181411 !important;
+  font-weight: 700 !important;
+}
+
+/* 1:1 Photo Frame */
+[data-theme="parchment"] #plate-detail-modal .w-64.h-64,
+[data-theme="parchment"] #plate-detail-modal .w-72.h-72 {
+  background-color: #ffffff !important;
+  border: 2px solid #cbd5e1 !important;
+  box-shadow: 0 8px 24px rgba(40, 30, 20, 0.15) !important;
+}
+
+/* Modal Index Indicator Pill */
+[data-theme="parchment"] #plate-detail-modal .bg-slate-950\/85 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #cbd5e1 !important;
+  color: #181411 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Modal Carousel Arrow Buttons */
+[data-theme="parchment"] #plate-detail-modal button.bg-slate-950\/80 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+[data-theme="parchment"] #plate-detail-modal button.bg-slate-950\/80 svg {
+  color: #181411 !important;
+}
+
+/* Batch Uploader Thumbnail # Index Badge in Parchment */
+[data-theme="parchment"] .batch-item-index-badge {
+  background-color: #b93826 !important;
+  color: #ffffff !important;
+  border: 1px solid #8e2b1d !important;
+  box-shadow: 0 1px 3px rgba(185, 56, 38, 0.35) !important;
+  font-weight: 900 !important;
+}
+
+/* "完整辨識字號" Real Embossed White License Plate */
+[data-theme="parchment"] #plate-detail-modal .shadow-inner {
+  background-color: #ffffff !important;
+  border: 2px solid #64748b !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+[data-theme="parchment"] #plate-detail-modal .shadow-inner .text-slate-100 {
+  color: #0f172a !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.1em !important;
+}
+[data-theme="parchment"] #plate-detail-modal .shadow-inner .text-slate-400 {
+  color: #64748b !important;
+  font-weight: 600 !important;
+}
+
+/* JP Badge in Detail Modal */
+[data-theme="parchment"] #plate-detail-modal .bg-rose-950\/80 {
+  background-color: #fff1f2 !important;
+  border-color: #f43f5e !important;
+  color: #e11d48 !important;
+}
+
+/* Metadata Box */
+[data-theme="parchment"] #plate-detail-modal .space-y-2.bg-slate-950\/40 {
+  background-color: #ffffff !important;
+  border: 1.5px solid #dcd0be !important;
+  color: #181411 !important;
+}
+
+/* Footer Actions Bar */
+[data-theme="parchment"] #plate-detail-modal > div:last-child {
+  background-color: #ede3d4 !important;
+  border-top: 1.5px solid #d6caa8 !important;
+}
+
+/* "更換此張" Button */
+[data-theme="parchment"] #plate-detail-modal button.bg-slate-800 {
+  background-color: #ede4d4 !important;
+  border-color: #cfbeaa !important;
+  color: #181411 !important;
+}
+[data-theme="parchment"] #plate-detail-modal button.bg-slate-800:hover {
+  background-color: #e2d5c1 !important;
+}
+
+
+/* ========================================================
+   Stats Dashboard Modal (#stats-dashboard-modal, 典藏櫃)
+   ======================================================== */
+[data-theme="parchment"] #stats-dashboard-modal {
+  background-color: #fcf9f2 !important;
+  border: 1.5px solid #d6caa8 !important;
+  color: #181411 !important;
+  box-shadow: 0 25px 50px -12px rgba(40, 30, 20, 0.25) !important;
+}
+
+/* Header & Footer */
+[data-theme="parchment"] #stats-dashboard-modal > div:first-child,
+[data-theme="parchment"] #stats-dashboard-modal > div:last-child {
+  background-color: #ede3d4 !important;
+  border-color: #d6caa8 !important;
+}
+
+/* Navigation Tabs Bar */
+[data-theme="parchment"] #stats-dashboard-modal .px-5.pt-3 {
+  background-color: #ede3d4 !important;
+  border-bottom: 1.5px solid #d6caa8 !important;
+}
+[data-theme="parchment"] #stats-dashboard-modal .px-5.pt-3 button {
+  color: #635446 !important;
+}
+[data-theme="parchment"] #stats-dashboard-modal .px-5.pt-3 button.border-amber-400 {
+  background-color: #fcf9f2 !important;
+  border-color: #b93826 !important;
+  color: #b93826 !important;
+}
+
+/* Hero Rank & Grand Collection Banners */
+[data-theme="parchment"] #stats-dashboard-modal .bg-gradient-to-br {
+  background-image: none !important;
+  background-color: #faf5ed !important;
+  border-color: #d6caa8 !important;
+  box-shadow: 0 2px 8px rgba(40, 30, 20, 0.08) !important;
+}
+
+/* Trophy medallion in Hero */
+[data-theme="parchment"] #stats-dashboard-modal .w-16.h-16 .bg-slate-950 {
+  background-color: #faf5ed !important;
+}
+
+/* Badge Filter Buttons in Stats Dashboard */
+[data-theme="parchment"] .badge-filter-btn {
+  background-color: #faf5ec !important;
+  border: 1.5px solid #d6caa8 !important;
+  color: #2e251e !important;
+  font-weight: 700 !important;
+}
+[data-theme="parchment"] .badge-filter-btn:hover {
+  background-color: #ede2d1 !important;
+  color: #181411 !important;
+}
+[data-theme="parchment"] .badge-filter-special.bg-purple-600 {
+  background-color: #6b21a8 !important;
+  border-color: #581c87 !important;
+  color: #ffffff !important;
+}
+
+/* Badge Cards (BadgeItem.tsx) in Parchment */
+[data-theme="parchment"] .badge-item-card {
+  background-color: #ffffff !important;
+  border: 1.5px solid #d6caa8 !important;
+  box-shadow: 0 2px 6px rgba(40, 30, 20, 0.08) !important;
+}
+[data-theme="parchment"] .badge-item-card:hover {
+  background-color: #fffdfa !important;
+  border-color: #c4b5a2 !important;
+  box-shadow: 0 8px 16px rgba(40, 30, 20, 0.12) !important;
+}
+
+[data-theme="parchment"] .badge-title {
+  color: #181411 !important;
+  font-weight: 800 !important;
+}
+[data-theme="parchment"] .badge-tagline {
+  color: #4a3e33 !important;
+  font-weight: 600 !important;
+}
+
+/* Category Chips: 特殊車號 (Special Plate) - Bright Lavender with Royal Purple */
+[data-theme="parchment"] .badge-chip-special {
+  background-color: #f3e8ff !important;
+  color: #5b21b6 !important;
+  border: 1.5px solid #c4b5fd !important;
+  font-weight: 800 !important;
+}
+[data-theme="parchment"] .badge-chip-special-locked {
+  background-color: #faf5ff !important;
+  color: #6b21a8 !important;
+  border: 1.5px solid #d8b4fe !important;
+  font-weight: 700 !important;
+}
+
+/* Category Chips: 里程進度 (Milestone) - Warm Amber on Cream */
+[data-theme="parchment"] .badge-chip-milestone {
+  background-color: #fffbeb !important;
+  color: #92400e !important;
+  border: 1.5px solid #fde68a !important;
+  font-weight: 800 !important;
+}
+[data-theme="parchment"] .badge-chip-milestone-locked {
+  background-color: #faf5ec !important;
+  color: #78350f !important;
+  border: 1.5px solid #e5d9c5 !important;
+  font-weight: 700 !important;
+}
+
+/* Badge Detail Modal Category Tag */
+[data-theme="parchment"] .badge-detail-category {
+  background-color: #f3e8ff !important;
+  color: #5b21b6 !important;
+  border: 1.5px solid #c4b5fd !important;
+  font-weight: 800 !important;
+}
+
+/* Locked Medallions: Embossed ivory seal with bronze lock */
+[data-theme="parchment"] .locked-badge-ring,
+[data-theme="parchment"] .locked-detail-ring {
+  background: #d6caa8 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="parchment"] .locked-badge-inset,
+[data-theme="parchment"] .locked-detail-inset {
+  background: #ede3d4 !important;
+}
+[data-theme="parchment"] .locked-badge-core,
+[data-theme="parchment"] .locked-detail-core {
+  background: #faf5ec !important;
+  border: 1.5px solid #d6caa8 !important;
+}
+[data-theme="parchment"] .locked-lock-icon,
+[data-theme="parchment"] .locked-detail-icon {
+  color: #786452 !important;
+}
+[data-theme="parchment"] .locked-lock-label,
+[data-theme="parchment"] .locked-detail-label {
+  color: #5c4c3e !important;
+  font-weight: 800 !important;
+}
+
+/* Progress Bar Track in Stats Tab */
+[data-theme="parchment"] #stats-dashboard-modal .h-3\.5.rounded-full,
+[data-theme="parchment"] #stats-dashboard-modal .h-1.rounded-full {
+  background-color: #e5dac8 !important;
+  border-color: #d6caa8 !important;
+}
+[data-theme="parchment"] #stats-dashboard-modal .h-3\.5 .bg-gradient-to-r,
+[data-theme="parchment"] #stats-dashboard-modal .h-1 .bg-amber-400 {
+  background: linear-gradient(to right, #b93826, #d97706) !important;
+}
+
+/* Thousand Blocks Breakdown Boxes */
+[data-theme="parchment"] #stats-dashboard-modal .grid-cols-2.sm\:grid-cols-5 > div {
+  background-color: #ffffff !important;
+  border-color: #d6caa8 !important;
+}
+
+
+/* ========================================================
+   Badge Detail Modal (#badge-detail-modal)
+   ======================================================== */
+[data-theme="parchment"] #badge-detail-modal {
+  background-color: #fcf9f2 !important;
+  border: 1.5px solid #d6caa8 !important;
+  color: #181411 !important;
+  box-shadow: 0 25px 50px -12px rgba(40, 30, 20, 0.25) !important;
+}
+
+/* Top Hero in BadgeDetailModal */
+[data-theme="parchment"] #badge-detail-modal > div:nth-child(2) {
+  background-image: none !important;
+  background-color: #ede3d4 !important;
+  border-bottom: 1.5px solid #d6caa8 !important;
+}
+
+/* Target numbers grid inside BadgeDetailModal */
+[data-theme="parchment"] #badge-detail-modal .bg-slate-900\/80 {
+  background-color: #ffffff !important;
+  border-color: #d6caa8 !important;
+  color: #635446 !important;
+}
+[data-theme="parchment"] #badge-detail-modal .bg-emerald-500\/10 {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #047857 !important;
+}
+
+/* Subtitle / Tagline in BadgeDetailModal */
+[data-theme="parchment"] #badge-detail-modal .badge-detail-tagline,
+[data-theme="parchment"] #badge-detail-modal .text-amber-300\/90 {
+  color: #8e2b1d !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+}
+
+/* Matching plates cards in BadgeDetailModal */
+[data-theme="parchment"] #badge-detail-modal .bg-slate-950\/80 {
+  background-color: #ffffff !important;
+  border-color: #d6caa8 !important;
+}
+
+/* ========================================================
+   Profile Modal (#profile-modal) in Parchment Theme
+   ======================================================== */
+[data-theme="parchment"] #profile-modal {
+  background-color: #fcf9f2 !important;
+  border: 1.5px solid #d6caa8 !important;
+  color: #181411 !important;
+  box-shadow: 0 25px 50px -12px rgba(40, 30, 20, 0.25) !important;
+}
+
+[data-theme="parchment"] #profile-modal > div:first-child {
+  background-color: #ede3d4 !important;
+  border-bottom: 1.5px solid #d6caa8 !important;
+}
+
+/* ========================================================
+   Profile Modal Unified Card (登入狀態 + 收集冊備份 + 說明) in Parchment Theme
+   ======================================================== */
+[data-theme="parchment"] #profile-unified-card {
+  background-color: #faf5ed !important;
+  border: 1.5px solid #d6caa8 !important;
+  box-shadow: 0 4px 14px rgba(40, 30, 20, 0.08) !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .profile-status-label,
+[data-theme="parchment"] #profile-unified-card .backup-header-title {
+  color: #181411 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .profile-status-icon {
+  color: #b93826 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .profile-status-pill-logged {
+  background-color: #ecfdf5 !important;
+  border: 1px solid #a7f3d0 !important;
+  color: #047857 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .profile-status-pill-unlogged {
+  background-color: #fffbeb !important;
+  border: 1px solid #fde68a !important;
+  color: #92400e !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .profile-user-name {
+  color: #181411 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .profile-user-email {
+  color: #5c4e40 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .profile-status-desc,
+[data-theme="parchment"] #profile-unified-card .backup-header-desc {
+  color: #5c4e40 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-subcard {
+  background-color: #f3ecde !important;
+  border: 1.5px solid #d8cca8 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-subcard-title {
+  color: #181411 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-btn-sync,
+[data-theme="parchment"] #profile-unified-card .backup-btn-restore,
+[data-theme="parchment"] #profile-unified-card .backup-btn-export,
+[data-theme="parchment"] #profile-unified-card .backup-btn-import {
+  background-color: #ede3d2 !important;
+  color: #181411 !important;
+  border: 1.5px solid #caa882 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 3px rgba(40, 30, 20, 0.08) !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-btn-sync:hover,
+[data-theme="parchment"] #profile-unified-card .backup-btn-restore:hover,
+[data-theme="parchment"] #profile-unified-card .backup-btn-export:hover,
+[data-theme="parchment"] #profile-unified-card .backup-btn-import:hover {
+  background-color: #e5d8c3 !important;
+  border-color: #ba966e !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-subcard-desc {
+  color: #5c4e40 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-subcard-danger {
+  background-color: #fdf2f0 !important;
+  border: 1.5px solid #fecdd3 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-danger-title {
+  color: #9f1239 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-danger-desc {
+  color: #881337 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-btn-danger {
+  background-color: #ffe4e6 !important;
+  color: #9f1239 !important;
+  border: 1.5px solid #fca5a5 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-btn-danger:hover {
+  background-color: #fecdd3 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-explain-box {
+  background-color: #f3ecde !important;
+  border: 1.5px solid #d8cca8 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-explain-title {
+  color: #92400e !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] #profile-unified-card .backup-explain-text {
+  color: #2e251e !important;
+  font-weight: 600 !important;
+}
+
+
+/* ========================================================
+   Inputs & Controls
+   ======================================================== */
+[data-theme="parchment"] #search-plate-input {
+  background-color: #ffffff !important;
+  color: #181411 !important;
+  border-color: #d6caa8 !important;
+  font-weight: 600;
+}
+[data-theme="parchment"] #search-plate-input::placeholder {
+  color: #857361 !important;
+}
+
+/* ========================================================
+   Theme Dropdown Menu (#theme-dropdown-menu)
+   ======================================================== */
+[data-theme="parchment"] #theme-dropdown-menu {
+  background-color: #ffffff !important;
+  border: 1.5px solid #d6caa8 !important;
+  box-shadow: 0 16px 36px -4px rgba(40, 30, 20, 0.22) !important;
+}
+
+[data-theme="parchment"] #theme-dropdown-menu .theme-dropdown-title {
+  color: #635446 !important;
+}
+
+[data-theme="parchment"] #theme-dropdown-menu .border-slate-800 {
+  border-color: #ede3d4 !important;
+}
+
+[data-theme="parchment"] #theme-dropdown-menu .theme-dropdown-item {
+  color: #181411 !important;
+}
+
+[data-theme="parchment"] #theme-dropdown-menu .theme-dropdown-item:hover {
+  background-color: #f7f2e8 !important;
+}
+
+[data-theme="parchment"] #theme-dropdown-menu .theme-dropdown-item.bg-slate-800\/90 {
+  background-color: #faf5ed !important;
+  border-color: #b93826 !important;
+}
+
+[data-theme="parchment"] #theme-dropdown-menu .theme-name-text {
+  color: #181411 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="parchment"] #theme-dropdown-menu .theme-check-icon {
+  background-color: #b93826 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="cyber"] #theme-dropdown-menu {
+  background-color: #0d122b !important;
+  border: 1.5px solid #00f0ff !important;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3) !important;
+}
+
+[data-theme="cyber"] #theme-dropdown-menu .theme-dropdown-item.bg-slate-800\/90 {
+  background-color: rgba(0, 240, 255, 0.15) !important;
+  border-color: #00f0ff !important;
+}
+
+[data-theme="cyber"] #theme-dropdown-menu .theme-name-text {
+  color: #e2fbf7 !important;
+}
+
+[data-theme="cyber"] #theme-dropdown-menu .theme-check-icon {
+  background-color: #00f0ff !important;
+  color: #06070f !important;
+}

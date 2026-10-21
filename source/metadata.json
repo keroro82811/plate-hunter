@@ -1,0 +1,10 @@
+{
+  "name": "車牌獵人",
+  "description": "車牌號碼收集冊",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

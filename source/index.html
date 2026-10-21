@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function() {
+        function shouldSuppress(err, msg, file, stack) {
+          const s = String(err?.message || msg || '') + ' ' + String(stack || err?.stack || '') + ' ' + String(file || '');
+          return (
+            s.indexOf('WebSocket') !== -1 ||
+            s.indexOf('@vite/client') !== -1 ||
+            s.indexOf('vite:ws') !== -1 ||
+            s.indexOf('vite') !== -1 ||
+            s.indexOf('AbortError') !== -1 ||
+            s.indexOf('Failed to fetch') !== -1 ||
+            s.indexOf('NetworkError') !== -1
+          );
+        }
+        window.addEventListener('unhandledrejection', function(e) {
+          if (shouldSuppress(e.reason, '', '', e.reason?.stack)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          }
+        }, true);
+        window.addEventListener('error', function(e) {
+          if (shouldSuppress(e.error, e.message, e.filename, e.error?.stack)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          }
+        }, true);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>車牌獵人</title>
+    <meta name="description" content="車牌號碼收集冊" />
+    <meta property="og:title" content="車牌獵人" />
+    <meta property="og:description" content="車牌號碼收集冊" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      html, body {
+        touch-action: manipulation;
+        -webkit-text-size-adjust: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-900 text-slate-100 antialiased min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
