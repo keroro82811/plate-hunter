@@ -358,10 +358,11 @@ export const BatchUploaderModal: React.FC<BatchUploaderModalProps> = ({
         isDuplicatePlate: false,
       };
     } catch (err: any) {
+      const errMsg = err instanceof Error ? err.message : String(err);
       return {
         ...item,
         status: 'manual',
-        statusMessage: '辨識連線超時，請手動輸入',
+        statusMessage: `辨識失敗: ${errMsg.slice(0, 100)}`,
         isDuplicatePlate: false,
       };
     }
