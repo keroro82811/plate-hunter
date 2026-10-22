@@ -258,15 +258,6 @@ export const UploaderModal: React.FC<UploaderModalProps> = ({
         }
       } catch (err) {
         console.error('[Gemini] 辨識失敗:', err);
-        if (fileName) {
-          const fileHint = extractDigitsFromText(fileName);
-          if (fileHint) {
-            setFullPlate(fileHint.fullPlate);
-            setDigits(fileHint.digits);
-            setScanMessage(`連線繁忙，已從檔名解析 (${fileHint.fullPlate})`);
-            return true;
-          }
-        }
         setScanMessage(`辨識失敗: ${err instanceof Error ? err.message : String(err)}`);
       } finally {
         setIsScanning(false);
