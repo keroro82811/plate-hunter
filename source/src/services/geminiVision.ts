@@ -4,7 +4,11 @@
  */
 
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+// 新版 AQ.Ab8... key 用 header 傳，舊版 AIzaSy... 用 URL 參數
+const isNewKeyFormat = GEMINI_API_KEY.startsWith('AQ.');
+const GEMINI_API_URL = isNewKeyFormat
+  ? 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
+  : `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 export interface PlateRecognitionResult {
   detected: boolean;
@@ -48,9 +52,14 @@ export async function recognizePlateWithGemini(
 如果找不到車牌，回傳 {"detected": false, "fullPlate": "", "digits": ""}。
 只回傳 JSON，不要其他文字。`;
 
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (isNewKeyFormat) {
+    headers['x-goog-api-key'] = GEMINI_API_KEY;
+  }
+
   const response = await fetch(GEMINI_API_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify({
       contents: [
         {
