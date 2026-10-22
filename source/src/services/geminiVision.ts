@@ -82,7 +82,8 @@ export async function recognizePlateWithGemini(
   });
 
   if (!response.ok) {
-    throw new Error(`Gemini API error: ${response.status}`);
+    const errBody = await response.text().catch(() => '');
+    throw new Error(`Gemini ${response.status}: ${errBody.slice(0, 200)}`);
   }
 
   const json = await response.json();
