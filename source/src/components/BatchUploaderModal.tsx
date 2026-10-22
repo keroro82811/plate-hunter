@@ -449,9 +449,9 @@ export const BatchUploaderModal: React.FC<BatchUploaderModalProps> = ({
       const finished = await recognizeItem(current);
       updateItemInState(finished);
 
-      // Wait 4 seconds between requests to stay under rate limit
+      // Wait 1 second between requests
       if (i < newItems.length - 1) {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       }
     }
 
