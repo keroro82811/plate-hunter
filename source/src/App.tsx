@@ -820,16 +820,16 @@ export default function App() {
         onRestoreFromCloud={loadPlates}
       />
 
-      {/* Gemini Debug Button - 長按版本號觸發 */}
-      <div
-        className="fixed bottom-2 right-2 z-[200] opacity-10 text-[10px] text-slate-500 cursor-pointer select-none"
-        onDoubleClick={async () => {
+      {/* Gemini Debug Button */}
+      <button
+        className="fixed bottom-4 right-4 z-[200] bg-yellow-500 text-black text-sm font-bold px-3 py-2 rounded-lg shadow-lg"
+        onClick={async () => {
           const result = await testGeminiConnection();
           alert(result);
         }}
       >
-        v2.0
-      </div>
+        測試 API
+      </button>
 
       {/* Real-time Save Confirmation Toast */}
       {saveSuccessToast && (
