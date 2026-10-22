@@ -10,6 +10,28 @@ const GEMINI_API_URL = isNewKeyFormat
   ? 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
   : `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
+/**
+ * Quick connectivity test — returns status string for debugging
+ */
+export async function testGeminiConnection(): Promise<string> {
+  try {
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    if (isNewKeyFormat) headers['x-goog-api-key'] = GEMINI_API_KEY;
+    const url = isNewKeyFormat
+      ? 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
+      : `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ contents: [{ parts: [{ text: '回傳數字1' }] }] }),
+    });
+    const body = await res.text();
+    return `HTTP ${res.status}: ${body.slice(0, 300)}`;
+  } catch (e) {
+    return `網路錯誤: ${e instanceof Error ? e.message : String(e)}`;
+  }
+}
+
 export interface PlateRecognitionResult {
   detected: boolean;
   fullPlate: string;

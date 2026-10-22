@@ -25,6 +25,7 @@ import {
 } from './services/firebase';
 import { User as FirebaseUser } from 'firebase/auth';
 import { Camera, Sparkles, Award, Trophy, ChevronRight, X, Download, ArrowUp, Check } from 'lucide-react';
+import { testGeminiConnection } from './services/geminiVision';
 
 export default function App() {
   const [plates, setPlates] = useState<PlateRecord[]>([]);
@@ -818,6 +819,17 @@ export default function App() {
         onForceSyncAllToCloud={handleForceSyncAllToCloud}
         onRestoreFromCloud={loadPlates}
       />
+
+      {/* Gemini Debug Button - 長按版本號觸發 */}
+      <div
+        className="fixed bottom-2 right-2 z-[200] opacity-10 text-[10px] text-slate-500 cursor-pointer select-none"
+        onDoubleClick={async () => {
+          const result = await testGeminiConnection();
+          alert(result);
+        }}
+      >
+        v2.0
+      </div>
 
       {/* Real-time Save Confirmation Toast */}
       {saveSuccessToast && (
