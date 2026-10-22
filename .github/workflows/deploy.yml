@@ -9,17 +9,22 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -36,16 +41,14 @@ jobs:
         env:
           VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
 
-      - name: Copy build to root and push
-        run: |
-          cp -r source/dist/assets ./assets
-          cp source/dist/index.html ./index.html
-          cp source/dist/sw.js ./sw.js
-          cp source/dist/registerSW.js ./registerSW.js
-          cp source/dist/manifest.webmanifest ./manifest.webmanifest
-          ls source/dist/workbox-*.js && cp source/dist/workbox-*.js ./
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/ index.html sw.js registerSW.js manifest.webmanifest workbox-*.js
-          git diff --staged --quiet || git commit -m "Auto deploy: update build [skip ci]"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/keroro82811/plate-hunter.git main
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: source/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
