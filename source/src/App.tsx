@@ -658,6 +658,10 @@ export default function App() {
         onOpenBackup={() => setIsBackupOpen(true)}
         onOpenProfile={() => setIsProfileOpen(true)}
         onJumpToNumber={handleJumpToNumber}
+        onTestApi={async () => {
+          const result = await testGeminiConnection();
+          alert(result);
+        }}
       />
 
       {/* Main Container */}
@@ -820,16 +824,6 @@ export default function App() {
         onRestoreFromCloud={loadPlates}
       />
 
-      {/* Gemini Debug Button */}
-      <button
-        className="fixed bottom-4 right-4 z-[200] bg-yellow-500 text-black text-sm font-bold px-3 py-2 rounded-lg shadow-lg"
-        onClick={async () => {
-          const result = await testGeminiConnection();
-          alert(result);
-        }}
-      >
-        測試 API
-      </button>
 
       {/* Real-time Save Confirmation Toast */}
       {saveSuccessToast && (

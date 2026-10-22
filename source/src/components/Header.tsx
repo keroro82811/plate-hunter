@@ -20,6 +20,7 @@ interface HeaderProps {
   onOpenBackup?: () => void;
   onOpenProfile?: () => void;
   onJumpToNumber: (num: string) => void;
+  onTestApi?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -36,6 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenBackup,
   onOpenProfile,
   onJumpToNumber,
+  onTestApi,
 }) => {
   const [searchInput, setSearchInput] = useState('');
   const totalSlots = 10000;
@@ -91,6 +93,14 @@ export const Header: React.FC<HeaderProps> = ({
                 <h1 className="text-lg font-bold tracking-tight text-white">
                   車牌號碼收集冊
                 </h1>
+                {onTestApi && (
+                  <button
+                    onClick={onTestApi}
+                    className="bg-yellow-500 text-black text-xs font-bold px-2 py-0.5 rounded"
+                  >
+                    測試API
+                  </button>
+                )}
               </div>
             </div>
           </div>
