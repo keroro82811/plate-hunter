@@ -24,8 +24,9 @@ jobs:
           cache: 'npm'
           cache-dependency-path: source/package-lock.json
 
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
         working-directory: source
 
       - name: Build
