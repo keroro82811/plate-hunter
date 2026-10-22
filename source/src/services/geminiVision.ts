@@ -79,29 +79,25 @@ export async function recognizePlateWithGemini(
     headers['x-goog-api-key'] = GEMINI_API_KEY;
   }
 
-  const response = await fetch(GEMINI_API_URL, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({
-      contents: [
-        {
-          parts: [
-            { text: prompt },
-            {
-              inline_data: {
-                mime_type: mimeType,
-                data: base64Data,
-              },
-            },
-          ],
-        },
-      ],
-      generationConfig: {
-        temperature: 0.1,
-        maxOutputTokens: 256,
+  const body = JSON.stringify({
+    contents: [
+      {
+        parts: [
+          { text: prompt },
+          { inline_data: { mime_type: mimeType, data: base64Data } },
+        ],
       },
-    }),
+    ],
+    generationConfig: { temperature: 0.1, maxOutputTokens: 256 },
   });
+
+  let response: Response | null = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (attempt > 0) await new Promise(r => setTimeout(r, 2000 * attempt));
+    response = await fetch(GEMINI_API_URL, { method: 'POST', headers, body });
+    if (response.status !== 503) break;
+  }
+  if (!response) throw new Error('No response');
 
   if (!response.ok) {
     const errBody = await response.text().catch(() => '');
