@@ -437,31 +437,23 @@ export const BatchUploaderModal: React.FC<BatchUploaderModalProps> = ({
       setItems((prev) => prev.map((it) => (it.id === updated.id ? updated : it)));
     };
 
-    // Process with 2 parallel concurrent workers for fast batch recognition
-    const concurrency = 2;
-    const worker = async () => {
-      while (queue.length > 0) {
-        const current = queue.shift();
-        if (!current) break;
+    // Process one at a time with delay to avoid 429 rate limit (free tier: 15 req/min)
+    for (let i = 0; i < newItems.length; i++) {
+      const current = newItems[i];
+      updateItemInState({
+        ...current,
+        status: 'recognizing',
+        statusMessage: '辨識中...',
+      });
 
-        updateItemInState({
-          ...current,
-          status: 'recognizing',
-          statusMessage: '辨識中...',
-        });
+      const finished = await recognizeItem(current);
+      updateItemInState(finished);
 
-        const finished = await recognizeItem(current);
-        updateItemInState(finished);
-
-        // Minimal gentle pacing between batch items
-        if (queue.length > 0) {
-          await new Promise((resolve) => setTimeout(resolve, 150));
-        }
+      // Wait 4 seconds between requests to stay under rate limit
+      if (i < newItems.length - 1) {
+        await new Promise((resolve) => setTimeout(resolve, 4000));
       }
-    };
-
-    const workers = Array.from({ length: Math.min(concurrency, newItems.length) }, () => worker());
-    await Promise.all(workers);
+    }
 
     setIsProcessing(false);
   };
