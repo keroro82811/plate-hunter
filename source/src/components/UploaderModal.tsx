@@ -257,6 +257,7 @@ export const UploaderModal: React.FC<UploaderModalProps> = ({
           }
         }
       } catch (err) {
+        console.error('[Gemini] 辨識失敗:', err);
         if (fileName) {
           const fileHint = extractDigitsFromText(fileName);
           if (fileHint) {
@@ -266,7 +267,7 @@ export const UploaderModal: React.FC<UploaderModalProps> = ({
             return true;
           }
         }
-        setScanMessage('辨識連線超時，請手動輸入');
+        setScanMessage(`辨識失敗: ${err instanceof Error ? err.message : String(err)}`);
       } finally {
         setIsScanning(false);
       }
