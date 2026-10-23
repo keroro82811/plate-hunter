@@ -54,25 +54,14 @@ export async function recognizePlateWithGemini(
   // Strip data URL prefix if present
   const base64Data = imageBase64.includes(',') ? imageBase64.split(',')[1] : imageBase64;
 
-  const prompt = `你是台灣車牌辨識專家。請仔細辨識這張圖片中的車牌號碼。
+  const prompt = `Identify the license plate in this image. Taiwan plate formats: numbers+letters like 0001-R5, letters+numbers like ABC-1234, or pure numbers like 0001.
 
-台灣車牌格式：
-- 數字+英文：如 0001-R5、1234-AB、9999-ZZ
-- 英文+數字：如 ABC-1234、AB-1234、A-1234
-- 純數字：如 0001、1234
+Respond with ONLY valid JSON, no markdown, no explanation:
+{"detected":true,"fullPlate":"0001-R5","digits":"0001","vehicleType":"car","vehicleColor":"white","confidence":0.95}
 
-請只回傳 JSON，格式如下：
-{
-  "detected": true/false,
-  "fullPlate": "完整車牌號碼（含英文字母，如 0001-R5）",
-  "digits": "只取4位數字部分（如 0001）",
-  "vehicleType": "轎車/機車/貨車/其他",
-  "vehicleColor": "車身顏色",
-  "confidence": 0到1的信心值
-}
+If no plate found: {"detected":false,"fullPlate":"","digits":""}
 
-如果找不到車牌，回傳 {"detected": false, "fullPlate": "", "digits": ""}。
-只回傳 JSON，不要其他文字。`;
+Output JSON only.`;
 
   const headers: Record<string, string> = { 'Content-Type': 'application/json' };
   if (isNewKeyFormat) {
@@ -88,7 +77,7 @@ export async function recognizePlateWithGemini(
         ],
       },
     ],
-    generationConfig: { temperature: 0.1, maxOutputTokens: 256 },
+    generationConfig: { temperature: 0.1, maxOutputTokens: 256, responseMimeType: 'application/json' },
   });
 
   let response: Response | null = null;
