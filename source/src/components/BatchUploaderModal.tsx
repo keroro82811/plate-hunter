@@ -259,9 +259,15 @@ export const BatchUploaderModal: React.FC<BatchUploaderModalProps> = ({
     }
 
     try {
-      const img = await loadImage(item.originalDataUrl);
-      const optimizedDataUrl = await prepareOptimizedImageForAI(img);
-      const payloadUrl = optimizedDataUrl || item.originalDataUrl;
+      // Try to optimize image; if loadImage fails (e.g. HEIC on iOS), fall back to original
+      let payloadUrl = item.squareCropUrl || item.originalDataUrl;
+      try {
+        const img = await loadImage(item.originalDataUrl);
+        const optimizedDataUrl = await prepareOptimizedImageForAI(img);
+        if (optimizedDataUrl) payloadUrl = optimizedDataUrl;
+      } catch (loadErr) {
+        console.warn('Image load failed, using original dataUrl directly:', loadErr);
+      }
 
       const data: PlateRecognitionResult = await recognizePlateWithGemini(payloadUrl, 'image/jpeg');
 
@@ -449,9 +455,9 @@ export const BatchUploaderModal: React.FC<BatchUploaderModalProps> = ({
       const finished = await recognizeItem(current);
       updateItemInState(finished);
 
-      // Wait 1 second between requests
+      // Wait 2 seconds between requests to avoid 429 rate limit (free tier: ~15 req/min)
       if (i < newItems.length - 1) {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
       }
     }
 

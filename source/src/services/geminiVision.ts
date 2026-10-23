@@ -81,10 +81,10 @@ Output JSON only.`;
   });
 
   let response: Response | null = null;
-  for (let attempt = 0; attempt < 3; attempt++) {
-    if (attempt > 0) await new Promise(r => setTimeout(r, 2000 * attempt));
+  for (let attempt = 0; attempt < 4; attempt++) {
+    if (attempt > 0) await new Promise(r => setTimeout(r, 1500 * attempt));
     response = await fetch(GEMINI_API_URL, { method: 'POST', headers, body });
-    if (response.status !== 503) break;
+    if (response.status !== 503 && response.status !== 429) break;
   }
   if (!response) throw new Error('No response');
 
@@ -96,12 +96,17 @@ Output JSON only.`;
   const json = await response.json();
   const text = json?.candidates?.[0]?.content?.parts?.[0]?.text || '';
 
-  // Extract JSON from response
+  // Extract JSON from response (handles both pure JSON and markdown-wrapped)
   const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) {
-    throw new Error('No JSON in Gemini response');
+    // Return not-detected instead of throwing, to avoid treating as error
+    return { detected: false, fullPlate: '', digits: '' };
   }
 
-  const result = JSON.parse(jsonMatch[0]) as PlateRecognitionResult;
-  return result;
+  try {
+    const result = JSON.parse(jsonMatch[0]) as PlateRecognitionResult;
+    return result;
+  } catch {
+    return { detected: false, fullPlate: '', digits: '' };
+  }
 }
